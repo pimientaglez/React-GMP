@@ -6,12 +6,15 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js'
+        filename: 'bundle.js'
     },
     resolve: {
         extensions: [".js", ".jsx"],
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+        template: "./public/index.html",
+        filename: "./index.html",
+    })],
     // define babel loader
     module: {
         rules: [
@@ -29,6 +32,14 @@ module.exports = {
         {
             test: /\.html$/i,
             loader: 'html-loader',
+        },
+        {
+            test: /\.(png|jpe?g|gif)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                },
+            ],
         }
         ]
     }
