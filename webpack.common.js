@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     // define entry file and output
@@ -12,7 +13,11 @@ module.exports = {
         new HtmlWebpackPlugin({
         template: "./public/index.html",
         filename: "./index.html",
-    })],
+        }),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+        })
+    ],
     // define babel loader
     module: {
         rules: [
