@@ -37,7 +37,7 @@ module.exports = {
             loader: 'html-loader',
         },
         {
-            test: /\.(png|jpe?g|gif)$/i,
+            test: /\.(png|jpe?g|gif|svg)$/i,
             use: [
                 {
                     loader: 'file-loader',
@@ -45,7 +45,7 @@ module.exports = {
             ],
         },
         {
-            test: /\.css$/i,
+            test: /\.s[ac]ss$/i,
             use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         ]
