@@ -5,12 +5,12 @@
     .title {
         display: flex;
         align-items: center;
-        .netflix {
-            font-family: $netflix;
-        }
         h1 {
             font-size: 1.5em;
             color: $primary;
+        }
+        h1:not(.netflix) {
+            font-weight: 300;
         }
     }
 }
