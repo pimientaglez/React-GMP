@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from "../Logo/Logo";
+import AddMovieButton from "../AddMovie/AddMovieButton";
 import './TopContainer.scss';
 
 class TopContainer extends Component {
@@ -7,6 +8,7 @@ class TopContainer extends Component {
         return (
             <div className="top-container">
                 <Logo />
+                <AddMovieButton />
             </div>
         );
     }
