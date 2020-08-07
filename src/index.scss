@@ -1,0 +1,7 @@
+@use './styles/fonts' as *;
+
+* {
+    margin: 0;
+    font-family: $mulish;
+    font-size: 16px;
+}
