@@ -1,0 +1,8 @@
+@use '../../styles/colors' as *;
+
+.gmp .main {
+    background: $bg-dark;
+    height: calc(100vh - 34em);
+    margin: 0 auto;
+    width: 80%;
+}

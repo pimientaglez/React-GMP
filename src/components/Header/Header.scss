@@ -1,0 +1,12 @@
+.gmp .header {
+    height: 30em;
+    background-image: url('../../assets/header.jpg');
+    background-size: cover;
+    .blur {
+        background: rgba(255, 255, 255, 0.01); // Make sure this color has an opacity of less than 1
+        backdrop-filter: blur(5px); // This be the blur
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+}

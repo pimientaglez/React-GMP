@@ -1,0 +1,16 @@
+@use '../../styles/colors' as *;
+@use '../../styles/fonts' as *;
+
+.gmp .logo{
+    .title {
+        display: flex;
+        align-items: center;
+        .netflix {
+            font-family: $netflix;
+        }
+        h1 {
+            font-size: 1.5em;
+            color: $primary;
+        }
+    }
+}

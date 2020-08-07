@@ -1,14 +1,15 @@
 import React from "react";
 import './app.scss';
-import logo from '../assets/logo.svg';
+import Header from './Header/Header';
+import Footer from "./Footer/Footer";
+import Main from "./Main/Main";
 
 const App = () => {
     return (
-        <div className="content">
-            <div className="title">
-                <h1>Netflix Roulette App</h1>
-                <h3>Created with React  <img src={logo} alt="React Logo" style={{width: '20px', height: '20px'}}/></h3>
-            </div>
+        <div className="gmp">
+            <Header />
+            <Main />
+            <Footer />
         </div>
     )
 }
