@@ -12,10 +12,10 @@ class MovieCard extends Component {
                 <img src={Image} alt=""/>
                 <div className="info">
                     <div className="title-cat">
-                        <div className="title"><h2>Pulp Fiction</h2></div>
+                        <div className="title"><h2>Blade Runner</h2></div>
                         <div className="category"><p>Action & Adventure</p></div>
                     </div>
-                    <div className="year">1994</div>
+                    <div className="year">2017</div>
                 </div>
             </div>
         );
