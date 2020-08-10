@@ -19,5 +19,9 @@
             background-color: $primary;
             color: $bg-gray;
         }
+        &.select {
+            background-color: transparent;
+            border: none;
+        }
     }
 }
