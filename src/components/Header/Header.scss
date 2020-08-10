@@ -1,7 +1,10 @@
+@use '../../styles/colors' as *;
+
 .gmp .header {
     height: 30em;
-    background-image: url('../../assets/header-blur.jpg');
+    background-image: url('../../assets/grid-blur.jpg');
     background-size: cover;
+    border-bottom: .5em solid $bg-light;
     .blur {
         background: rgba(255, 255, 255, 0.01); // Make sure this color has an opacity of less than 1
         backdrop-filter: blur(5px); // This be the blur
