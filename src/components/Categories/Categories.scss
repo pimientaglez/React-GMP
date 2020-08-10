@@ -1,16 +1,12 @@
 @use '../../styles/colors' as *;
 
 .gmp .menu .categories {
-    position: relative;
     height: 4em;
     width:75%;
     ul {
         list-style-type: none;
-        margin: 0;
+        margin: 10px 0 0;
         padding: 0;
-        position: absolute;
-        left: -12px;
-        top: 5px;
         display: flex;
         flex-direction: row;
         li {
@@ -20,6 +16,9 @@
                 padding: 16px;
                 text-decoration: none;
                 font-weight: 300;
+                &:first-of-type {
+                    padding-left: 0px;
+                }
                 &:hover {
                     color: $primary;
                     cursor: pointer;
