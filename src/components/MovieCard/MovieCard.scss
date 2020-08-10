@@ -1,0 +1,43 @@
+@use '../../styles/colors' as *;
+
+.gmp .movie-card {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    img {
+        height: 500px;
+    }
+    .info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: $bg-lighter;
+        .title-cat {
+            width: 80%;
+            .title {
+                margin-bottom: 5px;
+                padding: 5px 0px;
+                h2 {
+                    font-weight: 500;
+                }
+            }
+            .category {
+                p {
+                    font-size: 1em;
+                    font-weight: 400;
+                }
+            }
+        }
+        .year {
+            width: 20%;
+            border: 1px solid $bg-lighter;
+            border-radius: 3px;
+            font-weight: 600;
+            height: 1.2em;
+            margin: 5px 0px;
+            padding: 2px 5px;
+            text-align: center;
+        }
+    }
+}

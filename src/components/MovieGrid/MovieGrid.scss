@@ -1,5 +1,7 @@
 @use '../../styles/colors' as *;
 
 .gmp .movie-grid {
-    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 50px;
 }
