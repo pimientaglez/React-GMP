@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import './MovieCard.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEllipsisV} from '@fortawesome/free-solid-svg-icons'
 import Image from '../../assets/blade-runner.jpg';
+import './MovieCard.scss';
 
 class MovieCard extends Component {
     render() {
         return (
             <div className="movie-card">
+                <div className="movie-menu"><FontAwesomeIcon icon={faEllipsisV} /></div>
                 <img src={Image} alt=""/>
                 <div className="info">
                     <div className="title-cat">
