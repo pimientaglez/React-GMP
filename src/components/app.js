@@ -1,15 +1,18 @@
 import React from "react";
-import './app.scss';
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Header from './Header/Header';
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
+import './app.scss';
 
 const App = () => {
     return (
         <div className="gmp">
-            <Header />
-            <Main />
-            <Footer />
+            <ErrorBoundary>
+                <Header />
+                <Main />
+                <Footer />
+            </ErrorBoundary>
         </div>
     )
 }
