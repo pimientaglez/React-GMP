@@ -1,0 +1,12 @@
+@use '../../styles/colors' as *;
+
+.gmp .search-container {
+    width: 70%;
+    margin: 4em auto;
+    height: 10em;
+    h1 {
+        font-size: 3em;
+        font-weight: 200;
+        color: $bg-gray;
+    }
+}

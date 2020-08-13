@@ -1,0 +1,15 @@
+@use '../../styles/colors' as *;
+
+.gmp .search-button {
+    margin-top: 2.5em;
+    display: inline-block;
+    float: right;
+    width: 17%;
+    button {
+        height: 3em;
+        width: 100%;
+        span {
+            font-size: 1em;
+        }
+    }
+}

@@ -1,14 +1,18 @@
 import React from "react";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Header from './Header/Header';
+import Footer from "./Footer/Footer";
+import Main from "./Main/Main";
 import './app.scss';
-import logo from '../assets/logo.svg';
 
 const App = () => {
     return (
-        <div className="content">
-            <div className="title">
-                <h1>Netflix Roulette App</h1>
-                <h3>Created with React  <img src={logo} alt="React Logo" style={{width: '20px', height: '20px'}}/></h3>
-            </div>
+        <div className="gmp">
+            <ErrorBoundary>
+                <Header />
+                <Main />
+                <Footer />
+            </ErrorBoundary>
         </div>
     )
 }
