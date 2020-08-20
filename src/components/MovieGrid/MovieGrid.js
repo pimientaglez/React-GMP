@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-import movieList from '../../utils/movieList';
-import './MovieGrid.scss';
+import movieList from "../../utils/movieList";
+import "./MovieGrid.scss";
 
 class MovieGrid extends Component {
-    render() {
-        return (
-            <div className="movie-grid">
-                {
-                    movieList.map( (movie, index) =>
-                        <MovieCard {...movie} key={index}/>
-                    )
-                }
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="movie-grid">
+        {movieList.map((movie, index) => (
+          <MovieCard
+            {...movie}
+            key={index}
+            onHandleClick={this.props.onHandleClick}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default MovieGrid;

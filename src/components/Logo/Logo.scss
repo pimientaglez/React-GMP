@@ -1,16 +1,16 @@
 @use '../../styles/colors' as *;
 
-.gmp .logo{
-    .title {
-        display: flex;
-        align-items: center;
-        h1 {
-            font-size: 1.5em;
-            font-weight: 900;
-            color: $primary;
-        }
-        h1:not(.netflix) {
-            font-weight: 400;
-        }
+.gmp .logo {
+  .title {
+    display: flex;
+    align-items: center;
+    h1 {
+      font-size: 1.5em;
+      font-weight: 900;
+      color: $primary;
     }
+    h1:not(.netflix) {
+      font-weight: 400;
+    }
+  }
 }

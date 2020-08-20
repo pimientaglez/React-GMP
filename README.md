@@ -5,15 +5,15 @@ _This is the movies web app coded with react library_
 **Getting Started**
 
 - Install dependencies:
-`npm install`
+  `npm install`
 
--  Run the app:
-`npm run start`
+- Run the app:
+  `npm run start`
 
-*The app will start running at `http://localhost:8080`*
+_The app will start running at `http://localhost:8080`_
 
--  Run tests:
-`npm test`
+- Run tests:
+  `npm test`
 
--  Create build for production:
-`npm run build`
+- Create build for production:
+  `npm run build`
