@@ -1,0 +1,25 @@
+@use '../../styles/colors' as *;
+
+.gmp .movie-actions-menu {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: $bg-dark;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    color: $bg-gray;
+    padding: 5px 0px;
+    border-radius: 3px;
+    .close {
+        text-align: end;
+        padding-right: 5px;
+    }
+    .edit, .delete {
+        line-height: 2;
+        padding-left: 15px;
+        &:hover {
+            background-color: $primary;
+        }
+    }
+}

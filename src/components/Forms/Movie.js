@@ -4,17 +4,17 @@ import { faTimes, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import "./Movie.scss";
 import AddMovieForm from "./AddMovieForm";
 import EditMovieForm from "./EditMovieForm";
+import DeleteMovieForm from "./DeleteMovieForm";
 
 class Movie extends Component {
-  constructor(props) {
-    super(props);
-  }
   displayForm() {
     switch (this.props.action) {
       case "add":
         return <AddMovieForm />;
       case "edit":
-        return <EditMovieForm />;
+        return <EditMovieForm movie={this.props.movie}/>;
+      case "delete":
+        return <DeleteMovieForm movie={this.props.movie}/>;
       default:
         return <div>No action selected</div>;
     }

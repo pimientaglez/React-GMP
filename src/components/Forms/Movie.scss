@@ -16,7 +16,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 30%;
-    height: 60%;
+    height: 67%;
     background-color: $bg-dark;
     padding: 4em;
     box-shadow: 0 0 20px #000000;
@@ -63,6 +63,9 @@
             margin-right: 10px;
           }
         }
+      }
+      &.form-delete {
+        color: $bg-gray
       }
     }
   }
