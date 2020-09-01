@@ -13,6 +13,9 @@ class App extends React.Component {
       'add': false
     }
   }
+  componentDidMount() {
+    console.log('This is the component did mount method');
+  }
   openForm (action) {
     this.setState({[action]: true})
   }
