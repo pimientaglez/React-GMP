@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MovieCard from "../MovieCard/MovieCard";
-import movieList from '../../utils/movieList';
 import './MovieGrid.scss';
 
 class MovieGrid extends Component {
@@ -8,8 +7,8 @@ class MovieGrid extends Component {
         return (
             <div className="movie-grid">
                 {
-                    movieList.map( (movie) =>
-                        <MovieCard {...movie} key={movie.id} />
+                    this.props.movieList.map( (movie) =>
+                        <MovieCard movie={movie} key={movie.id} onHandleMovieClick={(movie)=>{this.props.onHandleMovieClick(movie)}}/>
                     )
                 }
             </div>

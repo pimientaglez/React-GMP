@@ -26,7 +26,7 @@ class Movie extends Component {
           <div className="close">
             <FontAwesomeIcon
               icon={faTimes}
-              onClick={() => this.props.onHandleClick(false)}
+              onClick={() => this.props.onHandleClick()}
             />
           </div>
           {this.displayForm()}

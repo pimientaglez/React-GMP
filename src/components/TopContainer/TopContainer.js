@@ -8,7 +8,7 @@ class TopContainer extends Component {
     return (
       <div className="top-container">
         <Logo />
-        <AddMovieButton onHandleClick={(act)=>{this.props.onHandleClick(act)}} />
+        <AddMovieButton onHandleClick={()=>{this.props.onHandleClick()}} />
       </div>
     );
   }

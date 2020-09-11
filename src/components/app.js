@@ -4,36 +4,47 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
 import Movie from "./Forms/Movie";
+import movieList from '../utils/movieList';
 import "./app.scss";
 
-class App extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      'add': false
+const App = () => {
+  const [add, setAdd] = React.useState(false);
+  const [movieDetail, setMovieDetail] = React.useState(false);
+  const [addForm, setAddForm] = React.useState(null);
+  React.useEffect(()=>{
+    if (add) {
+      setAddForm(<Movie onHandleClick={()=>closeForm()} action={"add"} />);
+    } else {
+      setAddForm(null);
     }
+  }, [add]);
+
+  const openForm = () => {
+    setAdd(true);
   }
-  componentDidMount() {
-    console.log('This is the component did mount method');
+  const closeForm = () => {
+    setAdd(false);
   }
-  openForm (action) {
-    this.setState({[action]: true})
+  const openDetails = (movie) => {
+    setMovieDetail(movie);
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
-  closeForm (action) {
-    this.setState({[action]: false})
+  const closeDetails = () => {
+    setMovieDetail(null);
   }
-  render(){
-    const addForm = this.state.add ? <Movie onHandleClick={()=>this.closeForm('add')} action={"add"} /> : null;
-    return (
-      <div className="gmp">
-        <ErrorBoundary>
-          <Header addForm={addForm} handleClick={(act)=> this.openForm(act)} />
-          <Main/>
-          <Footer />
-        </ErrorBoundary>
-      </div>
-    );
-  } 
+  return (
+    <div className="gmp">
+      <ErrorBoundary>
+        <Header 
+          addForm={addForm} 
+          handleClick={()=> openForm()} 
+          movieDetail={movieDetail}  
+          handleMovieClick={()=> closeDetails()}/>
+        <Main movieList={movieList} handleMovieClick={(movie)=> openDetails(movie)}/>
+        <Footer />
+      </ErrorBoundary>
+    </div>
+  ); 
     
 };
 

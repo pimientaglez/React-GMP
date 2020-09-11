@@ -10,7 +10,7 @@ class AddMovieButton extends Component {
         <button
           type="button"
           className="ui-button transparent"
-          onClick={() => this.props.onHandleClick('add')}
+          onClick={() => this.props.onHandleClick()}
         >
           <FontAwesomeIcon icon={faPlus} />
           <span> ADD MOVIE</span>

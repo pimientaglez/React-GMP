@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import "./MovieCard.scss";
 
-const MovieCard = (props) => {
+const MovieCard = ({movie, onHandleMovieClick}) => {
   const [action, setAction] = React.useState(null);
   const [open, setOpen] = React.useState(null);
   const openForm = (act) => {
@@ -21,24 +21,24 @@ const MovieCard = (props) => {
           <FontAwesomeIcon icon={faEllipsisV} />
           {
             open &&
-            <MovieActionsMenu movie={props} handleClick={(act) => openForm(act)}/>
+            <MovieActionsMenu movie={movie} handleClick={(act) => openForm(act)}/>
           }
         </div>
-        <img src={props.imgUrl} alt={props.title} />
+        <img src={movie.imgUrl} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
         <div className="info">
           <div className="title-gen">
             <div className="title">
-              <h2>{props.title}</h2>
+              <h2>{movie.title}</h2>
             </div>
             <div className="genre">
-              <p>{props.genre}</p>
+              <p>{movie.genre}</p>
             </div>
           </div>
-          <div className="year">{props.releaseDate}</div>
+          <div className="year">{movie.releaseDate}</div>
         </div>
         {
           action &&
-          <Movie movie={props} action={action} onHandleClick={(act) => openForm(act)}/>
+          <Movie movie={movie} action={action} onHandleClick={(act) => openForm(act)}/>
         }
       </div>
   );
