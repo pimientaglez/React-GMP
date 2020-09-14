@@ -12,9 +12,10 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
   const openForm = (act) => {
     setAction(act);
   }
-  const openMenu = () => {
-    setOpen(!open);
-  }
+  const openMenu = React.useCallback(
+    () => {
+      setOpen(!open);
+    }, [open]);
   return (
       <div className="movie-card">
         <div className="movie-menu" onClick={() => openMenu()}>
