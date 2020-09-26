@@ -25,17 +25,17 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
             <MovieActionsMenu movie={movie} handleClick={(act) => openForm(act)}/>
           }
         </div>
-        <img src={movie.imgUrl} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
+        <img src={movie.poster_path} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
         <div className="info">
           <div className="title-gen">
             <div className="title">
               <h2>{movie.title}</h2>
             </div>
             <div className="genre">
-              <p>{movie.genre}</p>
+              <p>{movie.genres[0]}</p>
             </div>
           </div>
-          <div className="year">{movie.releaseDate}</div>
+          <div className="year">{movie.release_date.getFullYear()}</div>
         </div>
         {
           action &&
@@ -47,9 +47,9 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
 
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  releaseDate: PropTypes.number.isRequired,
-  imgUrl: PropTypes.string.isRequired,
+  genres: PropTypes.string.isRequired,
+  release_date: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
 };
 
 export default MovieCard;

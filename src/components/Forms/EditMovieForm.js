@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class EditMovieForm extends Component {
   render() {
-    const { id, title, releaseDate, movieUrl, genre, overview, runtime } = this.props.movie;
+    const { id, title, release_date, poster_path, genres, overview, runtime } = this.props.movie;
 
     return (
       <React.Fragment>
@@ -15,13 +15,13 @@ class EditMovieForm extends Component {
           <input type="text" name="title" id="title" value={title}/>
 
           <label htmlFor="release">RELEASE DATE</label>
-          <input type="text" name="release" value={releaseDate}/>
+          <input type="text" name="release" value={release_date}/>
 
           <label htmlFor="url">MOVIE URL</label>
-          <input type="text" name="url" id="url" value={movieUrl}/>
+          <input type="text" name="url" id="url" value={poster_path}/>
 
           <label htmlFor="genre">GENRE</label>
-          <input type="text" name="genre" id="genre" value={genre}/>
+          <input type="text" name="genre" id="genre" value={genres}/>
 
           <label htmlFor="overview">OVERVIEW</label>
           <input type="text" name="overview" id="overview" value={overview}/>

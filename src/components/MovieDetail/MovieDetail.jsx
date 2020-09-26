@@ -12,19 +12,19 @@ const MovieDetail = ({movie, onHandleClick}) => {
                 <div className="back" onClick={()=>onHandleClick()}><FontAwesomeIcon icon={faSearch} /></div>
             </div>
             <div className="movie">
-                <div className="image-container"><img src={movie.imgUrl} alt={movie.title} /></div>
+                <div className="image-container"><img src={movie.poster_path} alt={movie.title} /></div>
                 <div className="info-container">
                     <div className="title-container">
                         <h1 className="title">{movie.title}</h1>
                         <div className="rate-container">
-                            <h1 className="rate">{movie.rate}</h1>
+                            <h1 className="rate">{movie.vote_average}</h1>
                         </div>
                     </div>
                     <div className="sub-title">
                         <p>Oscar winning Movie</p>
                     </div>
                     <div className="year-duration">
-                        <h2 className="year">{movie.releaseDate}</h2>
+                        <h2 className="year">{movie.release_date.getFullYear()}</h2>
                         <h2 className="duration">{movie.runtime} min</h2>
                     </div>
                     <div className="overview">{movie.overview}</div>

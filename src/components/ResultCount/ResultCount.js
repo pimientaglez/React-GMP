@@ -1,16 +1,17 @@
 import React, { Component } from "react";
-import movieList from "../../utils/movieList";
 import "./ResultCount.scss";
+import { connect } from "react-redux";
 
-class ResultCount extends Component {
-  render() {
+const ResultCount = (props) => {
     return (
       <div className="result-count">
-        <h3>{movieList.length}</h3>
+        <h3>{props.movies.length}</h3>
         <p>movies found</p>
       </div>
     );
-  }
 }
 
-export default ResultCount;
+const mapStateToProps = (state) => {
+  return { movies: state.movies }
+}
+export default connect(mapStateToProps)(ResultCount);
