@@ -4,12 +4,16 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Logo from '../Logo/Logo';
 import './MovieDetail.scss';
 
-const MovieDetail = ({movie, onHandleClick}) => {
+import { connect } from "react-redux";
+import { selectMovie } from '../../actions'
+
+
+const MovieDetail = ({movie, selectMovie}) => {
     return (
         <div className="movie-detail">
             <div className="top">
                 <Logo/>
-                <div className="back" onClick={()=>onHandleClick()}><FontAwesomeIcon icon={faSearch} /></div>
+                <div className="back" onClick={() => selectMovie(null) }><FontAwesomeIcon icon={faSearch} /></div>
             </div>
             <div className="movie">
                 <div className="image-container"><img src={movie.poster_path} alt={movie.title} /></div>
@@ -24,7 +28,7 @@ const MovieDetail = ({movie, onHandleClick}) => {
                         <p>Oscar winning Movie</p>
                     </div>
                     <div className="year-duration">
-                        <h2 className="year">{movie.release_date.getFullYear()}</h2>
+                        <h2 className="year">{(new Date(movie.release_date)).getFullYear()}</h2>
                         <h2 className="duration">{movie.runtime} min</h2>
                     </div>
                     <div className="overview">{movie.overview}</div>
@@ -34,5 +38,4 @@ const MovieDetail = ({movie, onHandleClick}) => {
     );
 };
 
-
-export default MovieDetail;
+export default connect(null, { selectMovie })(MovieDetail);

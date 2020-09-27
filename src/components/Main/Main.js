@@ -10,7 +10,7 @@ class Main extends Component {
       <div className="main">
         <Menu />
         <ResultCount />
-        <MovieGrid onHandleMovieClick={(movie)=>this.props.handleMovieClick(movie)}/>
+        <MovieGrid />
       </div>
     );
   }

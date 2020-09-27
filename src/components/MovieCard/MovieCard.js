@@ -1,5 +1,4 @@
 import React from "react";
-import Movie from '../Forms/Movie';
 import MovieActionsMenu from "../MovieActionsMenu/MovieActionsMenu";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,12 +34,8 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
               <p>{movie.genres[0]}</p>
             </div>
           </div>
-          <div className="year">{movie.release_date.getFullYear()}</div>
+          <div className="year">{(new Date(movie.release_date).getFullYear())}</div>
         </div>
-        {
-          action &&
-          <Movie movie={movie} action={action} onHandleClick={(act) => openForm(act)}/>
-        }
       </div>
   );
 }
