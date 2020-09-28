@@ -3,17 +3,31 @@ import Menu from "../Menu/Menu";
 import "./Main.scss";
 import ResultCount from "../ResultCount/ResultCount";
 import MovieGrid from "../MovieGrid/MovieGrid";
+import ErrorsDisplay from "../ErrorsDisplay/ErrorsDisplay";
+
+import { connect } from "react-redux";
 
 class Main extends Component {
   render() {
+    //console.log(this.props.errors);
     return (
       <div className="main">
         <Menu />
         <ResultCount />
+        {
+          <ErrorsDisplay error={this.props.errors}/>
+        }
         <MovieGrid />
       </div>
     );
   }
 }
 
-export default Main;
+const mapStateToProps = (state) => {
+  return { 
+    errors: state.errors
+  }  
+}
+
+export default connect(mapStateToProps)(Main);
+

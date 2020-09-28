@@ -10,18 +10,22 @@ const MovieGrid = props => {
         <div className="movie-grid">
             {props.movies.length > 0 ?
                 props.movies.map(movie =>
-                    <MovieCard movie={movie} key={movie.id} onHandleMovieClick={(res)=>{props.selectMovie(res); window.scrollTo({top: 0, behavior: 'smooth'});}}/>
+                    <MovieCard 
+                        movie={movie} 
+                        key={movie.id} 
+                        onHandleMovieClick={(res)=>{props.selectMovie(res); window.scrollTo({top: 0, behavior: 'smooth'});}}/>
                 ):
-                <span>
-                    Loading Movies...
-                </span>    
+                !props.error?  <span>Loading Movies</span>: '' 
             }
         </div>
     );
 }
 
 const mapStateToProps = (state) => {
-    return { movies: state.movies }
+    return { 
+        movies: state.movies,
+        error: state.errors
+    }
 }
 
 export default connect(mapStateToProps, { selectMovie })(MovieGrid);

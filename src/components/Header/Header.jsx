@@ -5,7 +5,6 @@ import MovieDetail from "../MovieDetail/MovieDetail";
 import "./Header.scss";
 
 import { connect } from "react-redux";
-import { selectMovie } from '../../actions'
 
 
 

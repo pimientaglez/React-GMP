@@ -3,6 +3,7 @@ import MovieActionsMenu from "../MovieActionsMenu/MovieActionsMenu";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { listGenres } from '../../utils/helpers';
 import "./MovieCard.scss";
 
 const MovieCard = ({movie, onHandleMovieClick}) => {
@@ -31,7 +32,7 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
               <h2>{movie.title}</h2>
             </div>
             <div className="genre">
-              <p>{movie.genres[0]}</p>
+              <p>{listGenres(movie.genres)}</p>
             </div>
           </div>
           <div className="year">{(new Date(movie.release_date).getFullYear())}</div>

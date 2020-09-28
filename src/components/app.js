@@ -3,9 +3,6 @@ import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Main from "./Main/Main";
-import Movie from "./Forms/Movie";
-//import movieList from '../utils/movieList';
-import axios from 'axios';
 import "./app.scss";
 
 import { connect } from "react-redux";
