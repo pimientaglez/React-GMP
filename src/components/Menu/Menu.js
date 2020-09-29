@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import "./Menu.scss";
-import Categories from "../Categories/Categories";
+import Genres from "../Genres/Genres";
 import SortBy from "../SortBy/SortBy";
 
 class Menu extends Component {
   render() {
     return (
       <div className="menu">
-        <Categories />
+        <Genres />
         <SortBy />
       </div>
     );
