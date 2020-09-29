@@ -48,12 +48,22 @@
         margin: 1em 0;
       }
       input {
+        outline: none;
         border: none;
         background-color: $bg;
         border-radius: 3px;
         color: $bg-gray;
         height: 2.5em;
         padding: 5px;
+        &.input-error {
+          border: 1px solid $primary;
+          border-color: $primary;
+        }
+      }
+      .errors {
+        margin-top: 8px;
+        color: $primary;
+        font-size: 0.7em;
       }
       .actions {
         margin-top: 3em;
@@ -61,6 +71,9 @@
           width: 150px;
           &.reset {
             margin-right: 10px;
+          }
+          &:disabled {
+            background-color: $bg-lighter;
           }
         }
       }
