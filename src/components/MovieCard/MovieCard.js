@@ -1,9 +1,9 @@
 import React from "react";
-import Movie from '../Forms/Movie';
 import MovieActionsMenu from "../MovieActionsMenu/MovieActionsMenu";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
+import { listGenres } from '../../utils/helpers';
 import "./MovieCard.scss";
 
 const MovieCard = ({movie, onHandleMovieClick}) => {
@@ -25,31 +25,27 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
             <MovieActionsMenu movie={movie} handleClick={(act) => openForm(act)}/>
           }
         </div>
-        <img src={movie.imgUrl} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
+        <img src={movie.poster_path} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
         <div className="info">
           <div className="title-gen">
             <div className="title">
               <h2>{movie.title}</h2>
             </div>
             <div className="genre">
-              <p>{movie.genre}</p>
+              <p>{listGenres(movie.genres)}</p>
             </div>
           </div>
-          <div className="year">{movie.releaseDate}</div>
+          <div className="year">{(new Date(movie.release_date).getFullYear())}</div>
         </div>
-        {
-          action &&
-          <Movie movie={movie} action={action} onHandleClick={(act) => openForm(act)}/>
-        }
       </div>
   );
 }
 
 MovieCard.propTypes = {
   title: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  releaseDate: PropTypes.number.isRequired,
-  imgUrl: PropTypes.string.isRequired,
+  genres: PropTypes.string.isRequired,
+  release_date: PropTypes.number.isRequired,
+  poster_path: PropTypes.string.isRequired,
 };
 
 export default MovieCard;

@@ -1,25 +1,37 @@
-import React, { Component } from "react";
+import React from "react";
 import TopContainer from "../TopContainer/TopContainer";
 import SearchContainer from "../SearchContainer/SearchContainer";
 import MovieDetail from "../MovieDetail/MovieDetail";
 import "./Header.scss";
 
-const Header = ({addForm, movieDetail, handleClick, handleMovieClick}) =>{
+import { connect } from "react-redux";
 
+
+
+const Header = ({ selectedMovie, movieModal }) => {
   return (
     <div className="header">
       {
-      movieDetail ? 
-        (<MovieDetail movie={movieDetail} onHandleClick={()=>handleMovieClick()}/>)
+      selectedMovie ? 
+        (<MovieDetail movie={selectedMovie} />)
         :
-        (<>
-          <TopContainer onHandleClick={()=>{handleClick()}} />
-          <SearchContainer />
-        </>)
+        (
+          <>
+            <TopContainer />
+            <SearchContainer />
+          </>
+        )
       }
-      {addForm}
+      {movieModal}
     </div>
   );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return { 
+    selectedMovie: state.selectedMovie,
+    movieModal: state.movieModal
+  }  
+}
+
+export default connect(mapStateToProps)(Header);

@@ -3,18 +3,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import "./SortBy.scss";
 
-class SortBy extends Component {
-  render() {
+import { connect } from "react-redux";
+import { sortMovies } from '../../actions'
+
+const SortBy = (props) => {
+    const handleChange = (e) => {
+      props.sortMovies(e.target.value);
+    }
     return (
       <div className="sort-by">
         <div className="title">SORT BY</div>
-        <button className="ui-button select select-sort">
-          RELEASE DATE
-          <FontAwesomeIcon icon={faCaretDown} />
-        </button>
+        <select name="select" onChange={(e)=> handleChange(e)} >
+          
+          <option value="release_date" >RELEASE DATE</option> 
+          <option value="vote_average" >RATING</option>
+        </select>
       </div>
     );
-  }
 }
 
-export default SortBy;
+export default connect(null, { sortMovies })(SortBy);

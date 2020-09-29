@@ -14,13 +14,13 @@
     align-self: center;
     margin-right: 2em;
   }
-  .select-sort {
-    color: $bg-gray;
-    padding-right: 0px;
-    width: 11em;
-    svg {
-      color: $primary;
-      margin-left: 1em;
+  select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    option {
+      background-color: $bg-dark;
+      color: $text-light;
     }
   }
 }

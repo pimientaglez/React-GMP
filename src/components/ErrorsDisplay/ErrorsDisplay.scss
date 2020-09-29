@@ -1,0 +1,8 @@
+@use '../../styles/colors' as *;
+
+.gmp .errors-display {
+    padding: 0 1.5em 1.5em 0;
+    h3{
+        color: $primary;
+    }
+}

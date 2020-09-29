@@ -1,19 +1,26 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { deleteMovie, showMovieModal } from '../../actions'
 
-class EditMovieForm extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <h1>DELETE MOVIE</h1>
-                <form action="" className="form-delete">
-                    <span>Are you sure you want to delete this movie?</span>
-                    <div className="button-group right actions">
-                        <button className="ui-button primary">CONFIRM</button>
-                    </div>
-                </form>
-            </React.Fragment>
-        );
+
+const DeleteMovieForm = props => {
+    const handleDelete = (e) => {
+        e.preventDefault();
+        props.deleteMovie(props.movie.id);
+        props.showMovieModal(null);
     }
+    return (
+        <React.Fragment>
+            <h1>DELETE MOVIE</h1>
+            <form action="DELETE" className="form-delete" onSubmit={(e)=>handleDelete(e)}>
+                <span>Are you sure you want to delete this movie?</span>
+                <div className="button-group right actions">
+                    <button className="ui-button primary" type='submit'>CONFIRM</button>
+                </div>
+            </form>
+        </React.Fragment>
+    );
 }
 
-export default EditMovieForm;
+
+export default connect(null, { deleteMovie, showMovieModal })(DeleteMovieForm);

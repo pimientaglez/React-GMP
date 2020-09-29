@@ -6,6 +6,9 @@ import AddMovieForm from "./AddMovieForm";
 import EditMovieForm from "./EditMovieForm";
 import DeleteMovieForm from "./DeleteMovieForm";
 
+import { connect } from "react-redux";
+import { showMovieModal } from '../../actions'
+
 class Movie extends Component {
   displayForm() {
     switch (this.props.action) {
@@ -26,7 +29,7 @@ class Movie extends Component {
           <div className="close">
             <FontAwesomeIcon
               icon={faTimes}
-              onClick={() => this.props.onHandleClick()}
+              onClick={() => this.props.showMovieModal(null)}
             />
           </div>
           {this.displayForm()}
@@ -36,4 +39,4 @@ class Movie extends Component {
   }
 }
 
-export default Movie;
+export default connect(null, { showMovieModal })(Movie);
