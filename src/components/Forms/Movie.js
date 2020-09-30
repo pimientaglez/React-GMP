@@ -24,7 +24,7 @@ class Movie extends Component {
   }
   render() {
     return (
-      <div className="overlay" onClick={()=>this.props.showMovieModal(null)}>
+      <div className="overlay" >
         <div className="content">
           <div className="close">
             <FontAwesomeIcon
