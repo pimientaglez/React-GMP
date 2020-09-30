@@ -39,6 +39,12 @@
       margin-bottom: 1em;
     }
     form {
+      label {
+        color: $primary;
+        font-size: 0.8em;
+        font-weight: 500;
+        margin: 1em 0;
+      }
       .form-control {
         display: flex;
         flex-direction: column;

@@ -2,13 +2,13 @@ import { combineReducers } from 'redux';
 
 const moviesReducer = (movies = [], action) => {
     switch(action.type) {
-        case 'FETCH_MOVIES_SUCCESS':
+        case 'MOVIE_FETCH_SUCCESS':
             return action.payload;
-        case 'ADD_MOVIE_SUCCESS':
+        case 'MOVIE_ADD_SUCCESS':
             return movies;
-        case 'DELETE_MOVIE_SUCCESS':
+        case 'MOVIE_DELETE_SUCCESS':
             return movies.filter(movie => movie.id !== action.payload);
-        case 'EDIT_MOVIE_SUCCESS':
+        case 'MOVIE_EDIT_SUCCESS':
             return movies.map(movie => 
                 { 
                     if(movie.id === action.payload.id) {
@@ -16,11 +16,11 @@ const moviesReducer = (movies = [], action) => {
                     }
                     return movie
                 });
-        case 'SORT_MOVIES_RELEASE':
+        case 'MOVIE_SORT_RELEASE':
             return movies.slice().sort((a,b) => new Date(b[action.payload]) - new Date(a[action.payload]));
-        case 'SORT_MOVIES_RATING':
+        case 'MOVIE_SORT_RATING':
             return movies.slice().sort((a, b) => b[action.payload] - a[action.payload]);
-        case 'FILTER_MOVIES_SUCCESS':
+        case 'MOVIE_FILTER_SUCCESS':
             return action.payload;
         default:
             return movies;
@@ -29,26 +29,26 @@ const moviesReducer = (movies = [], action) => {
 
 const errorsReducer = (errors = null, action) => {
     switch(action.type) {
-        case 'FETCH_MOVIES_FAILURE':
+        case 'MOVIE_FETCH_FAILURE':
             return action.payload;
-        case 'ADD_MOVIE_FAILURE':
+        case 'MOVIE_ADD_FAILURE':
             return action.payload;
-        case 'EDIT_MOVIE_FAILURE':
+        case 'MOVIE_EDIT_FAILURE':
             return action.payload;
-        case 'FILTER_MOVIE_FAILURE':
+        case 'MOVIE_FILTER_FAILURE':
             return action.payload;
         default:
             return errors;
     }
 }
 const selectedMovieReducer = (selectedMovie = null, action) => {
-    if(action.type === 'SELECT_MOVIE') {
+    if(action.type === 'MOVIE_SELECT') {
         return action.payload;
     }
     return selectedMovie;
 }
 const showMovieModalReducer = (movieModal = null, action) => {
-    if(action.type === 'SHOW_MOVIE_MODAL') {
+    if(action.type === 'MODAL_SHOW') {
         return action.payload;
     }
     return movieModal;

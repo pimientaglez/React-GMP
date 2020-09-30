@@ -14,6 +14,7 @@ const MultiSelect = (props) => {
         { label: "Science Fiction", value: "Science Fiction" }
     ];
     const { label, name, ...rest } = props;
+    console.log(props);
     return (
         <div className="form-control">
             <label htmlFor={name}>{label}</label>

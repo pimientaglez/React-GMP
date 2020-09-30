@@ -7,7 +7,7 @@ const EditMovieForm = (props) => {
     return (
         <>
             <h1>EDIT MOVIE</h1>
-            <FormikContainer {...props.movie} action='edit' />
+            <FormikContainer movie={props.movie} action='edit' />
         </>
     );
   }
