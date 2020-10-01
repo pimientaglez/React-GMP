@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Movie from "../Forms/Movie";
+import MovieModal from "../Forms/MovieModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./AddMovieButton.scss";
@@ -13,7 +13,7 @@ const AddMovieButton = props => {
         <button
           type="button"
           className="ui-button transparent"
-          onClick={() => props.showMovieModal(<Movie action={"add"} />)}
+          onClick={() => props.showMovieModal(<MovieModal action={"add"} />)}
         >
           <FontAwesomeIcon icon={faPlus} />
           <span> ADD MOVIE</span>

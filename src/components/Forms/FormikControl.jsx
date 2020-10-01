@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from './Input';
-import DatePicker from './DatePicker';
-import MultiSelect from './MultiSelect';
+import Input from './Components/Input';
+import DatePicker from './Components/DatePicker';
+import MultiSelect from './Components/MultiSelect';
 
 const FormikControl = (props) => {
     const { control, ...rest } = props

@@ -2,14 +2,25 @@ import React from 'react';
 import {Formik, Form} from 'formik';
 import FormikControl from './FormikControl';
 import * as Yup from 'yup';
+import moment from 'moment';
 import { connect } from "react-redux";
 import { editMovie, addMovie, showMovieModal } from '../../actions';
 
 const FormikContainer = ({movie, action, editMovie, addMovie, showMovieModal}) => {
-    const newProps = Object.assign({}, movie);
-    newProps.genres = newProps.genres.map(genre => {return {value: genre, label: genre}});
-    const initialValues = {
-        ...newProps
+    let initialValues = {};
+    if (action === 'edit') {
+        const newProps = Object.assign({}, movie);
+        newProps.genres = newProps.genres.map(genre => {return {value: genre, label: genre}});
+        initialValues = { ...newProps };
+    } else {
+        initialValues = {
+            title: '',
+            release_date: moment().format('YYYY-MM-DD'),
+            poster_path: '',
+            genres: [],
+            overview: '',
+            runtime: 0
+        }
     }
     console.log(initialValues);
     const validationSchema = Yup.object({
@@ -18,12 +29,12 @@ const FormikContainer = ({movie, action, editMovie, addMovie, showMovieModal}) =
         poster_path: Yup.string().required('Required').matches(/^(ftp|http|https):\/\/[^ "]+$/, 'Enter valid URL'),
         genres: Yup.array().required('Pick at least 1 genre'),
         overview: Yup.string().required('Required'),
-        runtime: Yup.string().required('Required'),
+        runtime: Yup.number().required('Required'),
     });
     const onSubmit = values => {
+        values.genres = values.genres.map(genre => genre.value);
         switch(action) {
             case 'edit':
-                values.genres = values.genres.map(genre => genre.value);
                 editMovie(values);
                 showMovieModal(null);
                 return;
@@ -35,7 +46,7 @@ const FormikContainer = ({movie, action, editMovie, addMovie, showMovieModal}) =
                 return;
         }
     }
-
+    
     return (
         <Formik 
             initialValues={initialValues}
@@ -44,8 +55,13 @@ const FormikContainer = ({movie, action, editMovie, addMovie, showMovieModal}) =
         >            
         { props => (
             <Form>
-                <label htmlFor="title">MOVIE ID: </label>
-                <label>{props.values.id}</label>
+                {action === 'edit' &&
+                    <div>
+                        <label htmlFor="title">MOVIE ID: </label>
+                        <label>{props.values.id}</label>
+                    </div>
+                }
+                
                 <FormikControl 
                     control='input' 
                     type='text' 

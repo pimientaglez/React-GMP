@@ -11,6 +11,8 @@ const MultiSelect = (props) => {
         { value: 'Crime', label: 'Crime' },
         { value: 'Romance', label: 'Romance' },
         { value: 'Adventure', label: 'Adventure' },
+        { value: 'Music', label: 'Music' },
+        { value: 'Animation', label: 'Animation' },
         { label: "Science Fiction", value: "Science Fiction" }
     ];
     const { label, name, ...rest } = props;
