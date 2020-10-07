@@ -10,7 +10,7 @@ export const selectMovie = ( movie = null ) => {
 
 export const fetchMovies = () => async dispatch => {
     try{
-        const response = await movieApi.get('/movies?limit=100');
+        const response = await movieApi.get('/movies?limit=20');
         dispatch(
             {
                 type: 'MOVIE_FETCH_SUCCESS',
@@ -100,7 +100,7 @@ export const sortMovies = (sort = null) => {
 export const filterMovies = (filter = null) => async dispatch => {
     console.log('action filter', filter);
     try{
-        const response = await movieApi.get('/movies?limit=100&filter=' + filter);
+        const response = await movieApi.get('/movies?limit=20&filter=' + filter);
         dispatch(
             {
                 type: 'MOVIE_FILTER_SUCCESS',
@@ -111,6 +111,25 @@ export const filterMovies = (filter = null) => async dispatch => {
         dispatch(
             {
                 type: 'MOVIE_FILTER_FAILURE',
+                payload: error
+            }
+        )
+    }
+}
+export const searchMovies = (search = null) => async dispatch => {
+    console.log('action search', search);
+    try{
+        const response = await movieApi.get('/movies?limit=20&searchBy=title&search=' + search);
+        dispatch(
+            {
+                type: 'MOVIE_SEARCH_SUCCESS',
+                payload: response.data.data
+            }
+        )
+    } catch (error) {
+        dispatch(
+            {
+                type: 'MOVIE_SEARCH__FAILURE',
                 payload: error
             }
         )
