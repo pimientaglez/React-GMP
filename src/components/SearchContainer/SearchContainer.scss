@@ -9,4 +9,33 @@
     font-weight: 200;
     color: $bg-gray;
   }
+  .search-bar {
+    margin-top: 2.5em;
+    width: 80%;
+    display: inline-block;
+    float: left;
+    input {
+      width: 100%;
+      background-color: rgba(35, 35, 35, 0.8);
+      border-radius: 3px;
+      border: none;
+      color: $bg-lighter;
+      font-weight: 500;
+      height: 3em;
+      padding-left: 1em;
+    }
+  }
+  .search-button {
+    margin-top: 2.5em;
+    display: inline-block;
+    float: right;
+    width: 17%;
+    button {
+      height: 3em;
+      width: 100%;
+      span {
+        font-size: 1em;
+      }
+    }
+  }
 }

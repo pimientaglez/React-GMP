@@ -6,6 +6,8 @@ const moviesReducer = (movies = [], action) => {
             return action.payload;
         case 'MOVIE_ADD_SUCCESS':
             return movies;
+        case 'MOVIE_SEARCH_SUCCESS':
+            return action.payload;
         case 'MOVIE_DELETE_SUCCESS':
             return movies.filter(movie => movie.id !== action.payload);
         case 'MOVIE_EDIT_SUCCESS':
@@ -36,6 +38,8 @@ const errorsReducer = (errors = null, action) => {
         case 'MOVIE_EDIT_FAILURE':
             return action.payload;
         case 'MOVIE_FILTER_FAILURE':
+            return action.payload;
+        case 'MOVIE_SEARCH_FAILURE':
             return action.payload;
         default:
             return errors;
