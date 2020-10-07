@@ -1,5 +1,6 @@
 import React from "react";
 import MovieActionsMenu from "../MovieActionsMenu/MovieActionsMenu";
+import MoviePoster from '../MoviePoster/MoviePoster';
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
@@ -25,7 +26,7 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
             <MovieActionsMenu movie={movie} handleClick={(act) => openForm(act)}/>
           }
         </div>
-        <img src={movie.poster_path} alt={movie.title} onClick={()=> onHandleMovieClick(movie)}/>
+        <MoviePoster movie_poster={movie.poster_path} onClick={()=> onHandleMovieClick(movie)}/>
         <div className="info">
           <div className="title-gen">
             <div className="title">
