@@ -42,10 +42,16 @@ const MovieCard = ({movie, onHandleMovieClick}) => {
 }
 
 MovieCard.propTypes = {
-  title: PropTypes.string.isRequired,
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    poster_path: PropTypes.string,
+    release_date: PropTypes.string,
+    genres: PropTypes.array,
+})
+  /* title: PropTypes.string.isRequired,
   genres: PropTypes.string.isRequired,
   release_date: PropTypes.number.isRequired,
-  poster_path: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired, */
 };
 
 export default MovieCard;
