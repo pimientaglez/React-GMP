@@ -2,6 +2,8 @@
 
 _This is the movies web app coded with react library_
 
+_Movives API taken from_ : https://github.com/VarvaraZadnepriak/MoviesAPI.ReactJS
+
 **Getting Started**
 
 - Install dependencies:
