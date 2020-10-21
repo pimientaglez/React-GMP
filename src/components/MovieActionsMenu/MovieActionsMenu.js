@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from "../Forms/Movie";
+import MovieModal from "../Forms/MovieModal";
 import "./MovieActionsMenu.scss";
 
 import { connect } from "react-redux";
@@ -10,8 +10,8 @@ const MovieActionsMenu = (props) => {
         <React.Fragment>
             <div className="movie-actions-menu">
                 <div className="close">x</div>
-                <div className="edit" onClick={()=> props.showMovieModal(<Movie movie={props.movie} action={"edit"} />) }>Edit</div>            
-                <div className="delete"  onClick={()=> props.showMovieModal(<Movie movie={props.movie} action={"delete"} />) }>Delete</div>
+                <div className="edit" onClick={()=> props.showMovieModal(<MovieModal movie={props.movie} action={"edit"} />) }>Edit</div>            
+                <div className="delete"  onClick={()=> props.showMovieModal(<MovieModal movie={props.movie} action={"delete"} />) }>Delete</div>
             </div>
             {
                 props.movieModal

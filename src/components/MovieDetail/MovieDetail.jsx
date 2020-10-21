@@ -26,7 +26,7 @@ const MovieDetail = ({movie, selectMovie}) => {
                         </div>
                     </div>
                     <div className="sub-title">
-                        <p>{listGenres(movie.genres)}</p>
+                        <p>{movie.tagline}</p>
                     </div>
                     <div className="year-duration">
                         <h2 className="year">{(new Date(movie.release_date)).getFullYear()}</h2>

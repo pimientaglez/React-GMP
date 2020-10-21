@@ -3,24 +3,24 @@ import movieApi from '../api/movieApi';
 export const selectMovie = ( movie = null ) => {
     console.log(movie);
     return {
-        type: 'SELECT_MOVIE',
+        type: 'MOVIE_SELECT',
         payload: movie
     };
 };
 
 export const fetchMovies = () => async dispatch => {
     try{
-        const response = await movieApi.get('/movies?limit=100');
+        const response = await movieApi.get('/movies?limit=20');
         dispatch(
             {
-                type: 'FETCH_MOVIES_SUCCESS',
+                type: 'MOVIE_FETCH_SUCCESS',
                 payload: response.data.data
             }
         )
     } catch (error) {
         dispatch(
             {
-                type: 'FETCH_MOVIES_FAILURE',
+                type: 'MOVIE_FETCH_FAILURE',
                 payload: 'Error Fetching movies'
             }
         )
@@ -30,7 +30,7 @@ export const deleteMovie = (movieId = null) => async dispatch => {
     const response = await movieApi.delete(`/movies/${movieId}`);
     dispatch(
         {
-            type: 'DELETE_MOVIE_SUCCESS',
+            type: 'MOVIE_DELETE_SUCCESS',
             payload: movieId
         }
     )
@@ -40,7 +40,7 @@ export const editMovie = (movie = null) => async dispatch => {
         const response = await movieApi.put(`/movies`, movie);
         dispatch(
             {
-                type: 'EDIT_MOVIE_SUCCESS',
+                type: 'MOVIE_EDIT_SUCCESS',
                 payload: movie
             }
         )
@@ -60,14 +60,14 @@ export const addMovie = (movie = null) => async dispatch => {
         console.log('action: ADD movie', response);
         dispatch(
             {
-                type: 'ADD_MOVIE_SUCCESS',
+                type: 'MOVIE_ADD_SUCCESS',
                 payload: response.data.data
             }
             )
     }catch (error) {
         dispatch(
             {
-                type: 'ADD_MOVIE_FAILURE',
+                type: 'MOVIE_ADD_FAILURE',
                 payload: error
             }
         )
@@ -76,7 +76,7 @@ export const addMovie = (movie = null) => async dispatch => {
 
 export const showMovieModal = (movie = null) => {
     return {
-        type: 'SHOW_MOVIE_MODAL',
+        type: 'MODAL_SHOW',
         payload: movie
     };
 };
@@ -86,12 +86,12 @@ export const sortMovies = (sort = null) => {
     switch (sort) {
         case 'release_date':
             return {
-                type: 'SORT_MOVIES_RELEASE',
+                type: 'MOVIE_SORT_RELEASE',
                 payload: sort
             };
         default:
             return {
-                type: 'SORT_MOVIES_RATING',
+                type: 'MOVIE_SORT_RATING',
                 payload: sort
             };
             
@@ -100,17 +100,36 @@ export const sortMovies = (sort = null) => {
 export const filterMovies = (filter = null) => async dispatch => {
     console.log('action filter', filter);
     try{
-        const response = await movieApi.get('/movies?limit=100&filter=' + filter);
+        const response = await movieApi.get('/movies?limit=20&filter=' + filter);
         dispatch(
             {
-                type: 'FILTER_MOVIES_SUCCESS',
+                type: 'MOVIE_FILTER_SUCCESS',
                 payload: response.data.data
             }
         )
     } catch (error) {
         dispatch(
             {
-                type: 'FILTER_MOVIES_FAILURE',
+                type: 'MOVIE_FILTER_FAILURE',
+                payload: error
+            }
+        )
+    }
+}
+export const searchMovies = (search = null) => async dispatch => {
+    console.log('action search', search);
+    try{
+        const response = await movieApi.get('/movies?limit=20&searchBy=title&search=' + search);
+        dispatch(
+            {
+                type: 'MOVIE_SEARCH_SUCCESS',
+                payload: response.data.data
+            }
+        )
+    } catch (error) {
+        dispatch(
+            {
+                type: 'MOVIE_SEARCH__FAILURE',
                 payload: error
             }
         )

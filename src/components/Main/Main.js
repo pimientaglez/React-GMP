@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 
 class Main extends Component {
   render() {
-    //console.log(this.props.errors);
     return (
       <div className="main">
         <Menu />
